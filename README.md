@@ -65,14 +65,16 @@ if __name__ == "__main__"
         ]
     }
     
-    # decoder 接收一个 dict、list、tuple 或 set 作为参数。
-    # 如果传递的是 dict，则返回一个调用它的类实例对象，否则返回该实例对象的数组。
+    # decoder 接收一个 dict、list 或 str ( 将解析为 dict 或 list ) 等类型的值作为参数。
+    # 如果传递的是 dict，则返回调用它的类实例对象，否则返回该实例对象的数组。
     p = Person.decoder(data)  # 解码字典
     print(p)
-    # Person(name='HjzCy',
-    #        age=19, 
-    #        phone=Phone(name='iPhone XS', number='13689772671'), 
-    #        dogs=[Dog(name='小黑狗', color='黑色'), Dog(name='妞妞', color='金色'), Dog(name='大黄狗', color='黄色')])
+    '''\
+    Person(name='HjzCy',
+       age=19, 
+       phone=Phone(name='iPhone XS', number='13689772671'), 
+       dogs=[Dog(name='小黑狗', color='黑色'), Dog(name='妞妞', color='金色'), Dog(name='大黄狗', color='黄色')])
+    '''
     
     p = Person.decoder(json.dumps(data))  # 解码 JSON 字符串
     print(p)  # 输出同上
