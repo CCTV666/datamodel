@@ -71,9 +71,9 @@ if __name__ == "__main__"
     print(p)
     '''\
     Person(name='HjzCy',
-       age=19, 
-       phone=Phone(name='iPhone XS', number='13689772671'), 
-       dogs=[Dog(name='小黑狗', color='黑色'), Dog(name='妞妞', color='金色'), Dog(name='大黄狗', color='黄色')])
+           age=19, 
+           phone=Phone(name='iPhone XS', number='13689772671'), 
+           dogs=[Dog(name='小黑狗', color='黑色'), Dog(name='妞妞', color='金色'), Dog(name='大黄狗', color='黄色')])
     '''
     
     p = Person.decoder(json.dumps(data))  # 解码 JSON 字符串
