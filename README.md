@@ -2,9 +2,9 @@
 
 datamodel 是专门为 Python 写的一个 JSON to Model 模块。支持：
 
-- 字典转对象 ( `dict` to `object` ) ；
-- 列表转对象数组 ( `list` to `List[object]` ) ；
-- 对象转字典 ( `object` to `dict` ) ；
+- 字典转对象 ( `dict` to `object` ) 
+- 列表转对象数组 ( `list` to `List[object]` ) 
+- 对象转字典 ( `object` to `dict` ) 
 
 由于做项目需要经常要把从服务器请求到的 JSON 数据 ( `str` 、`dict` 、`list` ... ) 转换到对应的模型 ( `class` 实例 ) 。
 
