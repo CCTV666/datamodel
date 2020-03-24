@@ -1,6 +1,6 @@
 # datamodel
 
-datamodel 是专门为 Python 写的一个 JSON to Model 模块。支持：
+**datamodel** 是专门为 Python 写的一个 JSON to Model 模块。支持：
 
 - 字典转对象 ( `dict` to `object` ) 
 - 列表转对象数组 ( `list` to `List[object]` ) 
