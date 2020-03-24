@@ -130,11 +130,9 @@ if __name__ == "__main__"
         name: str = ''
         age: int = 0
     
-    print(Child.decoder({"name": "Hjz", "age": "19.a"}))
-    # 这是 decoder 解码出现错误时抛出的输出，以便用于调试：
+    # 在输出之前，如果 decoder 解码出现错误，则将其抛出，以便用于调试：
     # Child DecoderError: invalid literal for int() with base 10: '19.a'
-
-    # 程序不会崩溃，这才是 print 的输出结果。
+    print(Child.decoder({"name": "Hjz", "age": "19.a"}))
     # 由于不能将 "19.a" 转为 int，因此保留了在定义 age 时设置的默认值。
     # Child(name='Hjz', age=0)
     ```
