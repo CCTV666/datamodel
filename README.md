@@ -100,7 +100,7 @@ if __name__ == "__main__"
         name: str
         age: int
     ```
-    该 `Person` 传到 `decoder` 方法中会报错！
+    该 `Person` 类传到 `decoder` 方法中会报错！
 
 3. **不会检测 `__init__` 中定义的属性**
 
@@ -136,7 +136,6 @@ if __name__ == "__main__"
     
     # 在输出之前，如果 decoder 解码出现错误，则将其抛出，以便用于调试：
     # Child DecoderError: invalid literal for int() with base 10: '19.a'
-    print(Child.decoder({"name": "Hjz", "age": "19.a"}))
-    # 由于不能将 "19.a" 转为 int，因此保留了在定义 age 时设置的默认值。
     # Child(name='Hjz', age=0)
+    print(Child.decoder({"name": "Hjz", "age": "19.a"}))
     ```
