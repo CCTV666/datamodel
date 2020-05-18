@@ -62,10 +62,6 @@ p_list = Person.decoder(data)
 print(p_list)
 ```
 
-**多层数据嵌套**
-
-参考 model/example.py
-
 ## Api
 
 - **`decoder(cls, data: object)`**
