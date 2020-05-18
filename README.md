@@ -93,7 +93,7 @@ print(p_list)
 
 1. **类必须经过 `@dataclass` 修饰**
 
-    python 3.7 的新特性，为简单起见，约束所有类型必须使用。参阅 [理解 Python 的 Dataclasses ](https://zhuanlan.zhihu.com/p/59657729)。
+    python 3.7 的新特性，为简单起见，约束所有类型必须使用。参阅 [理解 Python 的 Dataclasses](https://zhuanlan.zhihu.com/p/59657729)。
     
 2. **必须为所有属性提供默认值 ( 可为 `None` )**
 
