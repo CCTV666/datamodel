@@ -22,7 +22,7 @@ datamodel 是一个可以从 JSON 映射到 Python 类的模块。
 from datamodel import *
 
 @dataclass
-class Person(DataModel):
+class Person(Datamodel):
     name: str = ''
     age: int = 0
     height: int = 0
