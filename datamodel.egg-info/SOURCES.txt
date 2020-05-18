@@ -1,0 +1,8 @@
+README.md
+setup.py
+datamodel/__init__.py
+datamodel/model.py
+datamodel.egg-info/PKG-INFO
+datamodel.egg-info/SOURCES.txt
+datamodel.egg-info/dependency_links.txt
+datamodel.egg-info/top_level.txt
