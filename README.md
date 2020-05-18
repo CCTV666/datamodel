@@ -19,7 +19,7 @@ datamodel 是一个可以从 JSON 映射到 Python 类的模块。
 包括需要继承的 DataModel 类，dataclasses 模块中的 dataclass 装饰器；
 以及 typing 模块中常用的 List 和 Dict 类型。
 """
-from model import *
+from datamodel import *
 
 @dataclass
 class Person(DataModel):
@@ -70,7 +70,7 @@ print(p_list)
 
   ```python
   @dataclass
-  class Ip(DataModel):
+  class Ip(Datamodel):
       ip: str = ""
       port: int = 0
   
