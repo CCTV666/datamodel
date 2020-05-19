@@ -4,9 +4,10 @@ datamodel 是一个可以从 JSON 映射到 Python 类的模块。
 
 **支持：**
 
-- 字典转对象 ( `dict` → `object` )
-- 列表转对象数组 ( `list` → `List[object]` )
-- 对象转字典 ( `object` → `dict` )
+- [x] 字典转对象 ( `dict` → `object` )；
+- [x] 列表转对象数组 ( `list` → `List[object]` )；
+- [x] 对象转字典 ( `object` → `dict` )；
+- [x] 对多层级的嵌套结构支持友好。
 
 目前网上并没有一个比较好的 JSON to Model 库，就算有，其写法也大多繁琐。由于做项目需要经常把从服务器上请求到的 JSON  转换到对应类的实例，于是决定自己写一个。
 
