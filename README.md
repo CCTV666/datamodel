@@ -11,6 +11,12 @@ datamodel 是一个可以从 JSON 映射到 Python 类的模块。
 
 目前网上并没有一个比较好的 JSON to Model 库，就算有，其写法也大多繁琐。由于做项目需要经常把从服务器上请求到的 JSON  转换到对应类的实例，于是决定自己写一个。
 
+## 安装
+
+```shell
+pip install datamodel
+```
+
 ## 使用
 
 **JSON 转类对象**
