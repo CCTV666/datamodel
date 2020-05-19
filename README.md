@@ -23,7 +23,7 @@ pip install datamodel
 
 ```python
 """
-包括需要继承的 DataModel 类，dataclasses 模块中的 dataclass 装饰器；
+包括需要继承的 Datamodel 类，dataclasses 模块中的 dataclass 装饰器；
 以及 typing 模块中常用的 List 和 Dict 类型。
 """
 from datamodel import *
