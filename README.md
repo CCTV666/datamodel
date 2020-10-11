@@ -23,6 +23,7 @@ pip install datamodel
 
 ```python
 """
+3.6及以前版本需要pip安装dataclass
 包括需要继承的 Datamodel 类，dataclasses 模块中的 dataclass 装饰器；
 以及 typing 模块中常用的 List 和 Dict 类型。
 """
@@ -41,7 +42,105 @@ p = Person.decoder({"name": "HjzCy",
 
 # Person(name='HjzCy', age=18, height=170)
 print(p)
+
+###################嵌套查询##############################
+from enum import Enum
+from typing import List
+
+class UpdateTypeEnum(Enum):
+    STYLE = "style"
+
+
+@dataclass
+class ItemStyle(Datamodel):
+    # 是否可见
+    visible: bool = None
+    # 更换文本
+    text: str = None
+
+
+@dataclass
+class GraphicsItemUpdateData(Datamodel):
+    # 页面id
+    pageId: str = None
+    # 图形itemId
+    itemId: str = None
+    # 类型
+    type: UpdateTypeEnum = None
+    # 样式
+    style: List[ItemStyle] = None
+
+        
+data = GraphicsItemUpdateData.decoder({"pageId": "ddd", "itemId": 5, "type": "style",
+                                        "style": [{"visible": True, "text": "ddd"}]})        
+        
+dataList = GraphicsItemUpdateData.decoder([{"pageId": "ddd", "itemId": 5, "type": "style",
+                                        "style": [{"visible": True, "text": "ddd"}]}])
+
+
 ```
+
+**复杂JSON转对象**
+
+
+
+```
+from enum import Enum
+from typing import List, Type
+
+from dataclasses import dataclass
+
+from datamodel import Datamodel
+
+
+class TypeEnum(Enum):
+    ROOT = 1
+    CHILDREN = 2
+
+
+@dataclass
+class TypeExample(Datamodel):
+    id: str = None
+    type: TypeEnum = None
+
+
+@dataclass
+class Node(Datamodel):
+    id: str = None
+    name: str = None
+    # childList是一个List
+    # Type['className'] 是自引用 , 3.7及其以后可用 from __future__ import annotations ,直接使用自己类名
+    childList: List[Type['Node']] = None
+
+
+if __name__ == '__main__':
+    # 
+    typeExample = TypeExample.decoder({"id": "2222", "type": 1})
+
+    print(typeExample)
+
+    # 自我嵌套
+    dictObj = {"id": "1", "name": "n1", "childList": [
+        {"id": "2", "name": "n2",
+         "childList": [
+             {"id": "2-1", "name": "n2-1",
+              "childList": []}
+         ]},
+        {"id": "3", "name": "n3",
+         "childList": []}
+    ]}
+
+    root1 = Node.decoder(dictObj)
+    print(root1)
+
+    import json
+
+    jsonStr = json.dumps(dictObj)
+    root2 = Node.decoder(jsonStr)
+    print(root2)
+```
+
+
 
 **类对象转 JSON**
 
@@ -91,6 +190,7 @@ print(p_list)
   ```python
   # Ip(ip='192.136.1.95', port=0)
   print(Ip.decoder({"ip": "192.136.1.95", "port": "a1234"}))
+  ```
 
 - **`asdict()`**
 
